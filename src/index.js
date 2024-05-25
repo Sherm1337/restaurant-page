@@ -1,12 +1,11 @@
 import './style.css';
+import './menu.css';
 
 import homepage from './homepage.js';
+import menu from './menu.js';
 
-const contentContainer = document.createElement('div');
-contentContainer.classList.add('content orange-background');
-document.body.appendChild(contentContainer);
 
-(function createHeader() {
+function createHeader() {
     const header = document.createElement('header');
     document.body.appendChild(header);
     
@@ -15,25 +14,35 @@ document.body.appendChild(contentContainer);
     const companyName = document.createElement('p');
     companyName.textContent = "Company Name";
     compNameContainer.appendChild(companyName);
+    header.appendChild(compNameContainer);
 
-    const nav = document.createElement('div');
-    nav.classList.add('header-nav');
+    const navDiv = document.createElement('div');
+    navDiv.classList.add('header-nav');
     let buttons = [
         {
             name: "Home",
-            script: homepage(),
+            script: homepage,
         },
         {
-            name: "Home",
-            script: console.log("menu.js works"),
+            name: "Menu",
+            script: menu,
         }
     ];
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
         const navButton = document.createElement('button');
-        navButton.textContent = `${button.name};`;
-        navButton.onclick(button.script);
-        nav.appendChild(navButton);        
+        navButton.textContent = `${button.name}`;
+        navButton.addEventListener("click", function() {
+            for (let i = document.body.childElementCount; i > 1 ; i--) {
+                const body = document.body;
+                body.removeChild(body.lastChild);
+            }
+        });
+        const script = button.script;
+        navButton.addEventListener("click", script);
+    
+        navDiv.appendChild(navButton);
     });
-})();
-
-homepage();
+    header.appendChild(navDiv);
+    homepage();
+};
+createHeader();

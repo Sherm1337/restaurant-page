@@ -1,16 +1,18 @@
 export default function homepage() {
     const quoteDiv = document.createElement('div')
-    quoteDiv.classList.add('subcontent-container quote');
+    quoteDiv.classList.add('subcontent-container');
+    quoteDiv.classList.add('quote');
     const quote = document.createElement('p');
     quote.textContent = "XYZ Company is a beacon of excellence in its industry, renowned for its unwavering commitment to quality, innovation, and customer satisfaction. With a dedicated team of experts and a culture that fosters creativity and collaboration, XYZ consistently delivers cutting-edge solutions that surpass expectations. Their stellar reputation and track record of success make them a top choice for clients seeking unparalleled service and results.";
     quoteDiv.appendChild(quote);
     const author = document.createElement('h2');
     author.textContent = "Name Here";
     quoteDiv.appendChild(author);
-    contentContainer.appendChild(quoteDiv);
+    document.body.appendChild(quoteDiv);
 
     const hoursDiv = document.createElement('div');
-    hoursDiv.classList.add('subcontent-container hours');
+    hoursDiv.classList.add('subcontent-container');
+    hoursDiv.classList.add('hours');
     const hoursTitle = document.createElement('h1');
     hoursTitle.textContent= "Hours";
     hoursDiv.appendChild(hoursTitle);
@@ -30,14 +32,16 @@ export default function homepage() {
         hoursListItem.textContent = day;
         hoursList.appendChild(hoursListItem);
     });
-    contentContainer.appendChild(hoursDiv);
+    document.body.appendChild(hoursDiv);
 
     const locationDiv = document.createElement('div');
-    locationDiv.classList.add('subcontent-container location');
+    locationDiv.classList.add('subcontent-container');
+    locationDiv.classList.add('location');
     const locationTitle = document.createElement('h1');
     locationTitle.textContent = "Location";
     locationDiv.appendChild(locationTitle);
     const locationAddress = document.createElement('h2');
     locationAddress.textContent = "Company Address Here";
     locationDiv.appendChild(locationAddress);
+    document.body.appendChild(locationDiv);
 }
