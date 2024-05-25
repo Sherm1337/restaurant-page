@@ -1,4 +1,4 @@
-
+import './menu.css';
 export default function menu() {
         let menuItems = [
             {

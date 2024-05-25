@@ -1,6 +1,4 @@
 import './style.css';
-import './menu.css';
-
 import homepage from './homepage.js';
 import menu from './menu.js';
 
